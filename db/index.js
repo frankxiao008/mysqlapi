@@ -31,5 +31,16 @@ database.one = (id)=>{
         });
     });
 }
+database.addUser = (username, password, email)=>{
+    return new Promise((resolve, reject)=>{  add: 'insert into user( username, password) values ( ?, ?)',
+        pool.query(`INSERT INTO users(username, password, email) VALUES ( ?, ?, ?)`, [username, password, email], (err, results)=>{
+            if(err){
+                return reject(err);
+            }
+            return resolve(results);
+        });
+    });
+}
+
 
 module.exports = database; 

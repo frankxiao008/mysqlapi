@@ -1,9 +1,10 @@
 const express = require('express');
 const apiRouter =  require('./routes');
+const cors = require('cors');
 
 const app = express();
 app.use('/api/data', apiRouter);
-
+app.use(cors());
 app.use(express.json());
 
 app.listen(process.env.PORT || '3000', ()=>{
