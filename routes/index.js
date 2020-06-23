@@ -30,7 +30,7 @@ router.post('/addUser', async (req, res, next)=>{
         console.log("the add user is called");
         // console.log(req.body);
         // var params = req.body;
-        let results = await db.addUser(params.username, req.params.password, req.params.email);
+        let results = await db.addUser(req.params.username, req.params.password, req.params.email);
         res.json(results);
         res.json({"name": "abc"});
         res.sendStatus(200);
